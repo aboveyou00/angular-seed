@@ -11,7 +11,7 @@ export class RepoBrowserComponent extends ComponentBase {
     constructor(private router: Router, private github: GithubService) {
         super();
     }
-    
+
     searchForOrg(orgName: string) {
         this.github.getOrg(orgName)
             .subscribe(({name}) => {

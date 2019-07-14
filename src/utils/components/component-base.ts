@@ -1,15 +1,15 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 @Component({ })
 export abstract class ComponentBase implements OnInit, AfterViewInit, OnDestroy {
     constructor() { }
-    
+
     private _subscriptions: Subscription[] = [];
     get subscriptions() {
         return this._subscriptions;
     }
-    
+
     ngOnInit() {
     }
     ngAfterViewInit() {
