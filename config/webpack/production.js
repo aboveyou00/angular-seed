@@ -1,5 +1,4 @@
 let { ContextReplacementPlugin, DefinePlugin } = require('webpack');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 let path = require('path');
 let webpackMerge = require('webpack-merge');
 let commonConfig = require('./common');
@@ -41,23 +40,24 @@ let $angularRouter = {
 };
 
 let devConfig = {
+    mode: 'production',
+
     entry: {
         'main':   './src/main.browser.ts',
         'import': './src/styles/styles.scss'
     },
-    
+
     output: {
         path: path.resolve(__dirname, '../../dist')
     },
-    
+
     plugins: [
         new ContextReplacementPlugin(/angular(\\|\/)core/, path.resolve(__dirname, '../../src')),
-        new DefinePlugin(clientConfig),
-        new UglifyJSPlugin()
+        new DefinePlugin(clientConfig)
     ],
-    
+
     module: {
-        loaders: [
+        rules: [
             { test: /\.ts$/, loaders: [$awesomeTypescript, $angular2Template, $angularRouter], exclude: /\.spec\.ts$/ },
             { test: /\.css$/, loaders: [$toString, $trim, $css] },
             { test: /\.html$/, loaders: [$trim] },

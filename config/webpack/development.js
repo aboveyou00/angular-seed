@@ -40,22 +40,24 @@ let $angularRouter = {
 };
 
 let devConfig = {
+    mode: 'development',
+
     entry: {
         'main':   './src/main.browser.ts',
         'import': './src/styles/styles.scss'
     },
-    
+
     output: {
         path: path.resolve(__dirname, '../../dist')
     },
-    
+
     plugins: [
         new ContextReplacementPlugin(/angular(\\|\/)core/, path.resolve(__dirname, '../../src')),
         new DefinePlugin(clientConfig)
     ],
-    
+
     module: {
-        loaders: [
+        rules: [
             { test: /\.ts$/, loaders: [$awesomeTypescript, $angular2Template, $angularRouter], exclude: /\.spec\.ts$/ },
             { test: /\.css$/, loaders: [$toString, $trim, $css] },
             { test: /\.html$/, loaders: [$trim] },
@@ -63,7 +65,7 @@ let devConfig = {
             { test: /(app|modules|shared)(\/|\\).+\.scss$/, loaders: [$toString, $trim, $sass] }
         ]
     },
-    
+
     devServer: {
         historyApiFallback: true,
         watchOptions: { aggregateTimeout: 300, poll: 1000 },

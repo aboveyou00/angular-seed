@@ -30,10 +30,10 @@
         "karma-jasmine": "^1.1.0",
         "karma-phantomjs-launcher": "^1.0.4",
         "karma-super-dots-reporter": "^0.1.0",
-        "karma-webpack": "^2.0.3",
+        "karma-webpack": "^4.0.2",
         "phantomjs-prebuilt": "^2.1.14",
         "tslint": "^5.1.0",
-        "webpack-dev-server": "^2.4.2",
+        "webpack-dev-server": "^3.7.2",
         "yargs": "^7.0.2"
     },
     "dependencies": {
@@ -71,8 +71,8 @@
         "to-string-loader": "^1.1.5",
         "trim-loader": "^0.5.1",
         "typescript": "2.4.2",
-        "uglifyjs-webpack-plugin": "^1.1.6",
-        "webpack": "^3.10.0",
+        "webpack": "^4.35.3",
+        "webpack-cli": "^3.3.6",
         "webpack-merge": "^0.15.0",
         "zone.js": "0.9.1"
     },

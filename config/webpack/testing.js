@@ -24,17 +24,19 @@ let $angularRouter = {
 };
 
 var karmaConfig = {
+    mode: 'development',
+
     output: {
         path: path.resolve(__dirname, '../../www')
     },
-    
+
     plugins: [
         new ContextReplacementPlugin(/angular(\\|\/)core(\\|\/)@angular/, path.resolve(__dirname, '../src')),
         new DefinePlugin(clientConfig)
     ],
-    
+
     module: {
-        loaders: [
+        rules: [
             // .ts files for TypeScript
             { test: /\.ts$/, loaders: [$awesomeTypescript, $angular2Template, $angularRouter] }
         ]
