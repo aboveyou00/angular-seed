@@ -1,4 +1,5 @@
 import './polyfills.browser';
+import 'bootstrap';
 
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -8,8 +9,10 @@ export const platformRef = platformBrowserDynamic();
 
 export function main() {
     if (CONFIG.env.NODE_ENV === 'production') enableProdMode();
+
     platformRef.bootstrapModule(AppModule)
         .catch(err => {
+            // tslint:disable-next-line: no-console
             console.error(err);
         });
 }
