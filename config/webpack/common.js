@@ -2,15 +2,16 @@ var path = require('path');
 
 // Our Webpack Defaults
 var defaultConfig = {
+    mode: 'development',
     devtool: 'cheap-module-source-map',
     cache: true,
-    
+
     output: {
         filename: '[name].bundle.js',
         sourceMapFilename: '[name].map',
         chunkFilename: '[id].chunk.js'
     },
-    
+
     resolve: {
         modules: [
             path.join(__dirname, '../../node_modules'),
@@ -19,7 +20,7 @@ var defaultConfig = {
         ],
         extensions: ['.ts', '.js']
     },
-    
+
     node: {
         global: true,
         crypto: 'empty',

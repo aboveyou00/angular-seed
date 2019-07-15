@@ -24,8 +24,6 @@ let $angularRouter = {
 };
 
 var karmaConfig = {
-    mode: 'development',
-
     output: {
         path: path.resolve(__dirname, '../../www')
     },

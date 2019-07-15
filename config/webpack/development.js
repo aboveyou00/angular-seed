@@ -40,15 +40,14 @@ let $angularRouter = {
 };
 
 let devConfig = {
-    mode: 'development',
-
     entry: {
         'main':   './src/main.browser.ts',
         'import': './src/styles/styles.scss'
     },
 
     output: {
-        path: path.resolve(__dirname, '../../dist')
+        path: path.resolve(__dirname, '../../dist'),
+        chunkFilename: '[name].bundle.js'
     },
 
     plugins: [
@@ -58,6 +57,7 @@ let devConfig = {
 
     module: {
         rules: [
+            { test: /[\/\\]@angular[\/\\].+\.js$/, parser: { system: true } },
             { test: /\.ts$/, loaders: [$awesomeTypescript, $angular2Template, $angularRouter], exclude: /\.spec\.ts$/ },
             { test: /\.css$/, loaders: [$toString, $trim, $css] },
             { test: /\.html$/, loaders: [$trim] },
